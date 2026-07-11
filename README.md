@@ -67,4 +67,4 @@ ng new angular-app --standalone --routing
 
 ## Licencia
 
-Código de ejemplo proporcionado con fines educativos, para acompañar el libro. Úsalo y adáptalo libremente en tus propios proyectos.
+Código de ejemplo proporcionado con fines educativos, para acompañar el libro. Úsalo y adáptalo libremente en tus propios proyectos bajo los términos de la [licencia MIT](LICENSE).
