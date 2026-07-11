@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <tr><th>ID</th><th>Total</th><th>Estado</th><th>Acción</th></tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pedido of pedidos$ | async">
+      <td>{{ pedido.id }}</td>
+      <td>{{ pedido.total | currency }}</td>
+      <td>{{ pedido.estado }}</td>
+      <td>
+        <button (click)="aprobar(pedido.id)" [disabled]="pedido.estado === 'Aprobado'">
+          Aprobar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
