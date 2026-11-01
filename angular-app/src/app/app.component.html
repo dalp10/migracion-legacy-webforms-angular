@@ -1,0 +1,32 @@
+<main>
+  <h1>Módulo de Pedidos</h1>
+  <p class="nota">
+    Caso de estudio del libro «Migración Legacy: WebForms a Angular y .NET Moderno».
+    Reemplaza a la pantalla WebForms de pedidos (ver carpeta <code>legacy/</code>).
+  </p>
+
+  <section class="tarjeta">
+    <h2>1. Iniciar sesión (demo)</h2>
+    @if (autenticado) {
+      <p>Sesión iniciada. <button (click)="cerrarSesion()">Cerrar sesión</button></p>
+    } @else {
+      <label>Usuario <input [(ngModel)]="usuario" name="usuario" /></label>
+      <label>Contraseña <input type="password" [(ngModel)]="password" name="password" /></label>
+      <button (click)="iniciarSesion()">Entrar</button>
+      @if (mensaje) { <p class="error">{{ mensaje }}</p> }
+    }
+  </section>
+
+  <section class="tarjeta">
+    <h2>2. Pedidos por cliente</h2>
+    <label>ID de cliente <input type="number" [(ngModel)]="clienteIdEntrada" name="cliente" min="1" /></label>
+    <button (click)="cargar()">Cargar pedidos</button>
+
+    @if (clienteIdActivo !== null) {
+      <!-- El @for con track fuerza a recrear el componente cuando cambia el cliente -->
+      @for (id of [clienteIdActivo]; track id) {
+        <app-pedidos-list [clienteId]="id" />
+      }
+    }
+  </section>
+</main>
